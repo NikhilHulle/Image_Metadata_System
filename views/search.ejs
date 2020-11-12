@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Image Metadata Manager</title>
+</head>
+
+<body>
+  <h1>Search by Tag</h1>
+  <form method="post" action="/search">
+  	<div>
+    	<label for="tag">Tag</label>
+    	<input type="text" name="tag">
+    	<label for="value">Value</label>
+    	<input type="text" name="value">
+    	<br><br>
+    </div>
+    <div>
+    	<label for="tag">Tag</label>
+    	<input type="text" name="tag">
+    	<label for="value">Value</label>
+    	<input type="text" name="value">
+    	<br><br>
+    </div>
+    <div>
+    	<label for="tag">Tag</label>
+    	<input type="text" name="tag">
+    	<label for="value">Value</label>
+    	<input type="text" name="value">
+    	<br><br>
+    </div>
+    <div>
+    	<label for="tag">Tag</label>
+    	<input type="text" name="tag">
+    	<label for="value">Value</label>
+    	<input type="text" name="value">
+    	<br><br>
+    </div>
+    <div>
+    	<label for="tag">Tag</label>
+    	<input type="text" name="tag">
+    	<label for="value">Value</label>
+    	<input type="text" name="value">
+    	<br><br>
+    </div>
+    <br><br>
+    <input type="submit" value="SEARCH">
+  </form>
+  <br><br>
+  <% if(show)	{ %>
+  <h4>Search Results:</h4>
+  <% 	if (Object.keys(docs).length>=1)	{ %>
+  <ul>
+    <% docs.forEach(function(doc) { %>
+      <li>
+        <img src="data:doc/<%=doc.img.contentType%>;base64, 
+                     <%=doc.img.data.toString('base64')%>">
+      </li>
+      <% }); %>
+  </ul>
+  <% 	} else	{ %>
+     		<br>
+	 		<h5>No results</h5>
+  <% 	} %>
+  <% } %>
+  <br><br><br>
+  <form method="get" action="/menu">
+  	<input type="submit" value="Go back to menu">
+  </form>
+  <br><br>
+  <form method="get" action="/">
+  	<input type="submit" value="Logout">
+  </form>
+</body>
+
+</html>
